@@ -9,15 +9,16 @@ format:
     toc: false
     geometry: 
       - top=3cm
-date: 2025-01-02
+date: 2025-06-25
 date-format: iso
 documentclass: article
 editor: source
-abstract: "This is our informative abstract of fewer than 250 words. It describes what we investigate, how we investigate it, and what we find."
+abstract: "This is our informative abstract of fewer than 200 words. It describes what we investigate, how we investigate it, and what we find."
 bibliography: 04-main.bib
 ---
 
-```{r setup}
+```{r}
+#| label: setup
 #| echo: false
 #| message: false
 
@@ -44,9 +45,10 @@ library(xtable)
 data("cars")
 ```
 
-```{r readdata}
-#| eval: false
+```{r}
+#| label: readdata
 #| echo: false
+#| eval: false
  
 # Because eval: false, this chunk is not run.
 
@@ -87,7 +89,7 @@ We explain important decisions and codings in this section. "We collect our data
 
 Where there are less-critical details that we implement to improve our analysis or presentation, we do not explain them in the paper. Our paper does not say, for example, "we reorder the levels of the factor variable from alphabetical 'high, low, medium' to the sensible 'low, medium, high.'" Of course, we implement that reordering, but it should not appear in our paper.
 
-We cite the software we use. For example, we conduct our analysis using R version `r paste(R.version$major, R.version$minor, sep = ".")` [@rcoreteam2410]. We rely on several elements of the `tidyverse` [@wickhamtidyverse]. Of course, we do not cite software that we do not use.
+We cite the software we use. For example, we conduct our analysis using R version `r paste(R.version$major, R.version$minor, sep = ".")` [@rcoreteam2506]. We rely on several elements of the `tidyverse` [@wickhamtidyverse]. Of course, we do not cite software that we do not use.
 
 # [Our Results Section Title Here]
 
@@ -102,7 +104,8 @@ Our results for the `cars` data include estimating the linear model
 $$\text{Distance}_i = \beta_0 + \beta_1 (\text{Speed}_i) + \epsilon_i.$$
 Perhaps we start by plotting the data, as in @fig-cars.
 
-```{r fig-cars}
+```{r}
+#| label:  fig-cars
 #| echo: false
 #| fig-cap: Distance on Speed
 
@@ -121,9 +124,10 @@ lm_out <- lm(dist ~ speed, data = cars)
 cars_speed_coef <- coef(lm_out)["speed"]
 ```
 
-Below we show the model estimates. The first table uses `xtable()`, the second uses `stargazer()` [@hlavac18].
+Below we show the model estimates. The first table uses `xtable()`, the second uses `stargazer()` [@hlavac18]. A third option is to use `texreg()`.
 
-```{r linearxtable}
+```{r}
+#| label: linearxtable
 #| echo: false
 #| message: false
 #| results: 'asis'
@@ -136,7 +140,8 @@ regr_table <- xtable::xtable(lm_out,
 print(regr_table, comment = FALSE)
 ```
 
-```{r linearstargazer}
+```{r}
+#| label: linearstargazer
 #| echo: false
 #| message: false
 #| results: 'asis'
@@ -149,6 +154,20 @@ stargazer::stargazer(lm_out,
                      header = FALSE)
 ```
 
+```{r}
+#| label: lineartexreg
+#| echo: false
+#| eval: false
+#| message: false
+#| results: 'asis'
+
+# We can print regression tables with xtable or stargazer:
+texreg::texreg(lm_out, 
+                     caption = "Our Informative Title",
+                     label = "lmout-texreg",
+                     digits = 2)
+```
+
 Using the `cars` data, we find that each unit of speed is associated with `r round(cars_speed_coef, 1)` more units of distance. We draw out what this really means, and what it implies. For example, if a typical difference among our observations is 7 units of speed, then our model estimates that a typical difference in distance among our observations is $7 \times `r round(cars_speed_coef, 1)` = `r 7 * round(cars_speed_coef, 1)`$ units of distance. We describe the substantive relevance of this number.
 
 We do not report estimates like `p = 3.242e-15`, since these are computational zeros. Instead, we write $p < 0.001$ or $p \approx 0$, as appropriate.
@@ -158,7 +177,8 @@ We do not report quantities to unhelpful degrees of precision. Although there we
 
 ## Comparing Distances between High- and Low-Speed Cars
 
-```{r ttest}
+```{r}
+#| label: ttest
 #| echo: false
 
 # Create a binary variable for "high-speed":
@@ -173,7 +193,8 @@ t_upper_ci <- t_out$conf.int[2] |> round(2)
 
 To report the results of a $t$-test, we do so in text, and perhaps in a well-formatted table as well, such as @tbl-ttesttable. Here, as above, we report the important details in text. For example, when we define "high-speed" cars as those traveling above the mean speed, the difference between the high-speed and low-speed group means is `r t_out$estimate[2] - t_out$estimate[1]`, with a 95% confidence interval that covers $(`r -t_upper_ci`, `r -t_lower_ci`)$. 
 
-```{r tbl-ttesttable}
+```{r}
+#| label: tbl-ttesttable
 #| echo: false
 #| warning: false
 #| tbl-cap: Distance by Speed Group
@@ -185,7 +206,8 @@ parameters::model_parameters(t_out) |>
 
 If I have tests of two outcomes from the same data, I can bind them together, as in @tbl-ttesttable2:
 
-```{r tbl-ttesttable2}
+```{r}
+#| label: tbl-ttesttable2
 #| echo: false
 #| warning: false
 #| tbl-cap: Distance and Square-root Distance by Speed Group
@@ -193,19 +215,24 @@ If I have tests of two outcomes from the same data, I can bind them together, as
 cars <- cars |> mutate(dist_sqrt = (sqrt(dist)))
 t_out_2 <- t.test(dist_sqrt ~ hs, data = cars)
 
-tab <- rbind(
-  model_parameters(t_out),
-  model_parameters(t_out_2)
+tab <- bind_rows(
+  as.data.frame(model_parameters(t_out)),
+  as.data.frame(model_parameters(t_out_2))
 )
 
 tab |> 
+  select(-CI, -Method, -Alternative) |>
+  rename("Mean_1" = "Mean_Group1",
+         "Mean_2" = "Mean_Group2",
+         "df" = "df_error") |> 
   print_md(
     footer = "")
 ```
 
 If we have trouble formatting using `{parameters}`, we can use `kable()` for one test, as in @tbl-ttesttable_kable, or two tests as in @tbl-ttesttable_kable2:
 
-```{r tbl-ttesttable_kable}
+```{r}
+#| label: tbl-ttesttable_kable
 #| echo: false
 #| warning: false
 #| tbl-cap: Distance by Speed Group using `kable`
@@ -223,7 +250,8 @@ t_out_tidy |> select(-c(method, alternative)) |>
          "CI Upper" = conf.high) |> kable(digits = 2)
 ```
 
-```{r tbl-ttesttable_kable2}
+```{r}
+#| label: tbl-ttesttable_kable2
 #| echo: false
 #| warning: false
 #| tbl-cap: Distance and Sqrt Distance by Speed Group using `kable`
