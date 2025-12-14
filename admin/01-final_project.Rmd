@@ -13,18 +13,18 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 library(knitr)
 library(tibble)
-#library(magrittr)
 ```
 
 
 
 # Final Projects
 
-The final project is an opportunity to answer a social science question of interest 
-to your group.  Your group will collect and analyze data that enable your analysis to 
-answer or inform your question.  Data can come from any source, such as 
-a work project, an academic replication repository like https://dataverse.harvard.edu, 
-public data such as https://opendata.dc.gov or https://nces.ed.gov/datatools/.
+The final project is an opportunity to answer a social science question of
+interest to your group. Your group will collect and analyze data that enable
+your analysis to answer or inform your question. Data can come from any source,
+such as a work project, an academic replication repository like
+https://dataverse.harvard.edu, public data such as https://opendata.dc.gov or
+https://nces.ed.gov/datatools/, etc.
 
 # Work Products
 
@@ -34,31 +34,29 @@ Your final project should include
 * Application of data science methods of modeling or discovery (statistical inference, linear, generalized linear, generalized additive, Bayesian regression, machine learning, clustering, text methods, network data methods)
 * Data analysis that is consistent with data science practices from class.
 * Code that embodies modern data science workflow procedures.
-* A report that clearly describes your social science question, the intellectual or 
-political context of the question, the data collection procedure, 
+* A report that clearly describes your social science question, the intellectual or political context of the question, the data collection procedure, 
 interesting or important features of the data wrangling or processing steps, your 
-statistical methods, and your results.  It should have an abstract that summarises 
-these features in a handful of sentences.  The report needs to be in `.pdf` format
+statistical methods, and your results. It should have an abstract that summarises 
+these features in a handful of sentences. The report needs to be in `.pdf` format. For graduate credit, the report should be written in \LaTeX, RMarkdown, or similar.
 * A GitHub repository with your code, data (if applicable), and a report on your 
-question, methods, results, and interpretations.  These should be in folders `code`, 
-`data`, and `docs`, respectively.  You may include additional elements as needed.
+question, methods, results, and interpretations. These should be in folders `code`, 
+`data`, and `docs`, respectively. You may include additional elements as needed.
+* The repo should include an R `renv()` or Python `venv` snapshot, or similar
 * Optionally, use of cloud or distributed computing
 
-The report needs to be part of the GitHub repository. The final version of the repository is due on the last day of the class at 15:00 (3:00 pm). There is no submission portal. Simply send the instructors the repository link (if it is public) or add them as collaborators (if it is private).
-
+The report needs to be part of the GitHub repository. The final version of the repository is due on the last day of the class at 15:00. There is no submission portal. Simply send the instructors the repository link (if it is public) or add them as collaborators (if it is private).
 
 
 # Presentations
 
-Presentations will take place the morning of the last class session. Each group will have 20-25 minutes for its presentation. Roughly half to two-thirds of this time can be formal presentation, with ample time for questions and discussion from instructors and colleagues at the end.  Please 
-limit your talk to 15 minutes.
+Presentations will take place the morning of the last class session. Each group will have 20-25 minutes for its presentation. Roughly half to two-thirds of this time can be formal presentation, with ample time for questions and discussion from instructors and colleagues at the end. Please limit your talk to 15 minutes.
 
 
 # Other Guidelines
 
-We expect there to be some variety in the length of the report, and groups should avoid adding extraneous information unrelated to their work.  The report should provide readers enough context to a) understand the analysis, b) be motivated about the importance of the question, and c) comprehend the intellectual debate in which the paper participates.  It is difficult to imagine doing this well, and describe your methods, results, and interpretations in under 5 pages. Aim for quality.
+We expect there to be some variety in the length of the report, and groups should avoid adding extraneous information unrelated to their work. The report should provide readers enough context to a) understand the analysis, b) be motivated about the importance of the question, and c) comprehend the intellectual debate in which the paper participates. It is difficult to imagine doing this well, and describe your methods, results, and interpretations in under 5 pages. Aim for quality.
 
-Any citation style is acceptable, as long as it's reasonable, consistent, and used in an academic field.  We recommend adopting the norms of the substantive field to which your paper should contribute.
+Any citation style is acceptable, as long as it's reasonable, consistent, and used in an academic field. We recommend adopting the norms of the substantive field to which your paper should contribute.
 
 Visualizations are not required, but are encouraged. They can add a great deal to the reader's ability to understand your problem or findings.
 

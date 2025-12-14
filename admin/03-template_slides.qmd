@@ -13,7 +13,6 @@ format:
       - text: | 
           \usepackage{wasysym} 
           \setbeamertemplate{footline}[page number]
-      - file: zzz_beamer_header.tex
     section-titles: true
     toc: true
 institute:
