@@ -1,0 +1,6 @@
+# Public repo links for Bash/make
+# 2026-01-07
+
+https://github.com/data-science-master/pvalue_sims
+
+https://github.com/data-science-master/penguins
