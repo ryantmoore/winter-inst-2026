@@ -1,0 +1,3 @@
+# Ali Amini's resources for Data Science
+
+https://aliamini.org/teaching
