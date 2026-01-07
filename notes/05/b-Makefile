@@ -1,0 +1,9 @@
+.PHONY: all
+all : output/penguin_pairs.png
+
+output/penguin_pairs.png : analysis/plot_penguin.R
+	R CMD BATCH --no-save --no-restore analysis/plot_penguin.R pp_out.Rout
+
+
+output/penguin_class.csv : analysis/classify_penguins.R
+	R CMD BATCH --no-save --no-restore analysis/penguin_class.R pc_out.Rout
