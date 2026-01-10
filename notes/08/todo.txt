@@ -1,10 +1,15 @@
 # To Do for SPA 020/420/620
 
-## 1. Send me a brief email describing your attendance on Monday and Tuesday, December 15 and 16. We understand that this is the first year the winter term courses had meetings before the new year. If you were not there, but have watched the available recordings for those days and caught up, be sure to note this.
+## 1. Send me a brief email describing your attendance on Monday and Tuesday, December 15 and 16. 
+
+We understand that this is the first year the winter term courses had meetings before the new year. 
+If you were not there, but have watched the available recordings for those days and caught up, 
+be sure to note this.
 
 ## 2. Complete the short peer evaluation below. 
 
-Complete the evaluation once for each teammate. You earn credit toward your own evaluation by submitting the evaluations for your teammates.
+Complete the evaluation once for each teammate. You earn credit toward your own evaluation by 
+submitting the evaluations for your teammates.
 
 https://docs.google.com/forms/d/e/1FAIpQLSeq5XTZAaVKB8Zb6wBgIkFqZqiXOVVtl3NCUovM1pneOjceeg/viewform?usp=publish-editor
 
@@ -12,6 +17,11 @@ https://tinyurl.com/5n74hj98
 
 ## 3. Complete the course evaluation at set.american.edu by 23:59 on Sunday, 2026-01-11.
 
-## 4. Check admin/final_project_repos.txt to confirm that your team's correct final project repo link is listed.
+## 4. Check admin/final_project_repos.txt.
 
-## 5. Send me your GitHub login name so that I can add you as a "collaborator" before I make the repo private next week.
+Confirm that your team's correct final project repo link is listed.
+
+## 5. Send me your GitHub login name.
+
+I will invite you as a "collaborator" so that you can see the course materials indefinitely, 
+before I make the repo private next week.
