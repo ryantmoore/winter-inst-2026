@@ -1,0 +1,15 @@
+# To Do for SPA 020/420/620
+
+## 1. Complete the short peer evaluation below. 
+
+Complete the evaluation once for each teammate. You earn credit toward your own evaluation by submitting the evaluations for your teammates.
+
+https://docs.google.com/forms/d/e/1FAIpQLSeq5XTZAaVKB8Zb6wBgIkFqZqiXOVVtl3NCUovM1pneOjceeg/viewform?usp=publish-editor
+
+https://tinyurl.com/5n74hj98
+
+## 2. Complete the course evaluation at set.american.edu. 
+
+## 3. Check admin/final_project_repos.txt to confirm that your team's correct final project repo link is listed.
+
+## 4. Send me your GitHub login name so that I can add you as a "collaborator" before I make the repo private next week.
